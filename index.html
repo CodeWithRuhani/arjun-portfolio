@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arjun Singh Chauhan | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -25,6 +25,11 @@
       background: var(--background-gradient);
       color: var(--text-color);
       line-height: 1.6;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    body.nav-active {
+      transform: translateX(-250px);
     }
 
     header {
@@ -40,12 +45,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
       color: var(--primary-color);
+      z-index: 1001;
     }
 
     .nav-links {
@@ -65,18 +73,48 @@
       color: #4db6ac;
     }
 
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 25px;
+      z-index: 1001;
+    }
+
+    .menu-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-active .menu-toggle .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-active .menu-toggle .bar:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+
+    .nav-active .menu-toggle .bar:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+
     .hero {
       padding: 60px 20px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      gap: 40px;
     }
 
     .hero-text {
       flex: 1;
       max-width: 600px;
-      margin-right: 40px;
+      text-align: left;
     }
 
     h1 {
@@ -186,6 +224,18 @@
       border-left: 3px solid #4db6ac;
       padding-left: 1rem;
       margin-bottom: 1rem;
+      position: relative;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      left: -9px;
+      width: 15px;
+      height: 15px;
+      background: #4db6ac;
+      border-radius: 50%;
     }
 
     .timeline-item h3 {
@@ -204,7 +254,51 @@
       color: #aaa;
     }
 
+    #contact a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      color: #ccc;
+    }
+
+    /* --- Media Queries --- */
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 40px 20px;
+      }
+    }
+
     @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        right: -250px;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #1a1f36;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      }
+
+      body.nav-active .nav-links {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
       .hero {
         flex-direction: column;
         text-align: center;
@@ -212,21 +306,56 @@
 
       .hero-text {
         margin-right: 0;
+        text-align: center;
       }
 
       .profile-pic {
         margin-top: 30px;
       }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .timeline {
+        padding: 0 10px;
+      }
     }
-  #contact a {
-    color: white;
-    text-decoration: none;
-  }
+    
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.2rem;
+      }
 
-  #contact a:hover {
-    color: #ccc;
-  }
+      h1 {
+        font-size: 2rem;
+      }
 
+      .name-pulse span {
+        font-size: 2rem;
+      }
+      
+      .hero-text h3 {
+        font-size: 1rem;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+
+      .btn-download {
+        padding: 10px 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .skill-card {
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -241,6 +370,11 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </header>
 
@@ -337,27 +471,27 @@
           </p>
         </div>
       </div>
-    </div>
+  </div>
 
   <section id="education">
   <div class="container">
     <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>M.S. in AI & Data Science</h3>
+        <span>Woolf University, UK | 2022 – 2025</span>
+      </div>
 
-    <div class="timeline-item">
-      <h3>M.S. in AI & Data Science</h3>
-      <span>Woolf University, UK | 2022 – 2025</span>
-    </div>
+      <div class="timeline-item">
+        <h3>B.E. Equivalent</h3>
+        <span>Institution of Engineers India | 2014 – 2017</span>
+      </div>
 
-    <div class="timeline-item">
-      <h3>B.E. Equivalent</h3>
-      <span>Institution of Engineers India | 2014 – 2017</span>
+      <div class="timeline-item">
+        <h3>Diploma in Mechanical Engineering</h3>
+        <span>Hewett Polytechnic | 2010 – 2013</span>
+      </div>
     </div>
-
-    <div class="timeline-item">
-      <h3>Diploma in Mechanical Engineering</h3>
-      <span>Hewett Polytechnic | 2010 – 2013</span>
-    </div>
-    
   </div>
 </section>
 
@@ -374,6 +508,22 @@
   <footer>
     &copy; 2025 Arjun Singh Chauhan. All Rights Reserved. Made by Jarnail Singh
   </footer>
+  
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const body = document.querySelector('body');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      body.classList.toggle('nav-active');
+    });
+
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        body.classList.remove('nav-active');
+      }
+    });
+  </script>
 
 </body>
 </html>
