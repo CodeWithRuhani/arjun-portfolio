@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arjun Singh Chauhan | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #ffffff;
+      --secondary-color: #2c3558;
+      --background-gradient: linear-gradient(120deg, #1a1f36, #2c3558);
+      --text-color: #ffffff;
+      --box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background-gradient);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1a1f36;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--box-shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4db6ac;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+      margin-right: 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .name-pulse span {
+      display: inline-block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4db6ac;
+      animation: breathe 3.5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0% { transform: scale(1); opacity: 0.90; }
+      50% { transform: scale(1.06); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.90; }
+    }
+
+    .hero-text h3 {
+      font-weight: 400;
+      color: #ddd;
+    }
+
+    .profile-pic {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: var(--box-shadow);
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .contact-icons a {
+      color: #ffffff;
+      font-size: 1.5rem;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .contact-icons a:hover {
+      color: #4db6ac;
+      transform: translateY(-3px);
+    }
+
+    .btn-download {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #4db6ac;
+      color: #1a1f36;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn-download:hover {
+      background-color: #399085;
+      color: #fff;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #ffffff10;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s;
+      border: 1px solid #4db6ac33;
+      color: #ffffff;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      background: #4db6ac22;
+    }
+
+    .timeline-item {
+      border-left: 3px solid #4db6ac;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-item h3 {
+      color: #ffffff;
+    }
+
+    .timeline-item span {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    footer {
+      background-color: #1a1f36;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        margin-right: 0;
+      }
+
+      .profile-pic {
+        margin-top: 30px;
+      }
+    }
+  #contact a {
+    color: white;
+    text-decoration: none;
+  }
+
+  #contact a:hover {
+    color: #ccc;
+  }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Arjun Singh Chauhan</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Hello, I'm</h1>
+      <div class="name-pulse"><span>Arjun Singh Chauhan</span></div>
+      <h3>Senior Development Consultant | Web & Data Analytics</h3>
+
+      <div class="contact-icons">
+        <a href="mailto:punarjsingh@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+918960101171" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://www.linkedin.com/in/arjun-singh-chauhan-98627423b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/your-username" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+
+      <a href="cv.pdf" class="btn-download" download>Download CV</a>
+    </div>
+    <img src="Arjun_pic.jpg" alt="Arjun Singh Chauhan" class="profile-pic">
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p style="text-align: center;">
+        With more than <strong>10 years of experience</strong> in Web & Data Analytics, I specialize in implementing Adobe Analytics,
+        Customer Data Platforms, and Data Visualization solutions. I have worked across multiple industries helping enterprises improve
+        digital strategy, customer experience, and data-driven decision making.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">Adobe Analytics</div>
+        <div class="skill-card">Adobe Experience Platform</div>
+        <div class="skill-card">Google Analytics</div>
+        <div class="skill-card">Tableau</div>
+        <div class="skill-card">Machine Learning</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Senior Development Consultant – Infogain (Client: Costco Wholesale)</h3>
+          <span>Jul 2024 – Present</span>
+          <p>
+            Leading Adobe RT-CDP implementation to unify customer data and power real-time personalization. 
+            Designing ingestion workflows from CRM, APIs, and mobile apps; configuring identity resolution; 
+            enabling activation across marketing channels. 
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Lead Software Engineer – Randstad Digital (Client: CVSHealth)</h3>
+          <span>Jun 2023 – Jul 2024</span>
+          <p>
+            Managed large-scale migration of Adobe &amp; Google Analytics. Designed schemas in Adobe Experience Platform, 
+            implemented Real-Time CDP, and ensured governance compliance (consent, labeling, policies). 
+            Optimized data flows and validated implementations with advanced debugging tools.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Lead Consultant – Growth Natives (Client: CarMax)</h3>
+          <span>Oct 2022 – May 2023</span>
+          <p>
+            Designed dashboards for tracking KPIs and conversions. Onboarded multiple CarMax platforms into Adobe Launch, 
+            Analytics, and Target. Provided optimization recommendations based on detailed analysis of conversion funnels 
+            and product performance.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Senior Software Engineer – Rados Engineering</h3>
+          <span>2018 – Oct 2022</span>
+          <p>
+            Delivered Adobe Analytics implementations for clients including FNP, Wiley, Wegmans, and Kennametal. 
+            Managed tag management via Adobe Launch, created reporting dashboards, and drove advanced analytics for 
+            web, iOS, and Android platforms. Mentored junior engineers in implementation best practices.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Data Analyst – L&amp;T Limited</h3>
+          <span>2013 – 2018</span>
+          <p>
+            Developed automation solutions and trained team members in reporting best practices. 
+            Built a real-time executive dashboard to enable data-driven decision making across business units.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <section id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline-item">
+      <h3>M.S. in AI & Data Science</h3>
+      <span>Woolf University, UK | 2022 – 2025</span>
+    </div>
+
+    <div class="timeline-item">
+      <h3>B.E. Equivalent</h3>
+      <span>Institution of Engineers India | 2014 – 2017</span>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Diploma in Mechanical Engineering</h3>
+      <span>Hewett Polytechnic | 2010 – 2013</span>
+    </div>
+    
+  </div>
+</section>
+
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:punarjsingh@gmail.com">punarjsingh@gmail.com</a></p>
+      <p>Phone: <a href="tel:+918960101171">+91-8960101171</a></p>
+      <p>Location: India</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Arjun Singh Chauhan. All Rights Reserved. Made by Jarnail Singh
+  </footer>
+
+</body>
+</html>
