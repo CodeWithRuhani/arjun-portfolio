@@ -25,9 +25,11 @@
       background: var(--background-gradient);
       color: var(--text-color);
       line-height: 1.6;
-      transition: transform 0.3s ease-in-out;
+      /* Add transition for a smooth slide-out effect */
+      transition: transform 0.3s ease-in-out; 
     }
 
+    /* This class is added by JavaScript to shift the body */
     body.nav-active {
       transform: translateX(-250px);
     }
@@ -74,7 +76,7 @@
     }
 
     .menu-toggle {
-      display: none;
+      display: none; /* Hidden on desktop */
       cursor: pointer;
       flex-direction: column;
       justify-content: space-between;
@@ -90,6 +92,7 @@
       transition: all 0.3s ease-in-out;
     }
     
+    /* Animation for the hamburger to an 'X' */
     .nav-active .menu-toggle .bar:nth-child(2) {
       opacity: 0;
     }
@@ -296,7 +299,7 @@
       }
 
       .menu-toggle {
-        display: flex;
+        display: flex; /* Show the hamburger menu on smaller screens */
       }
 
       .hero {
@@ -506,7 +509,7 @@
   </section>
 
   <footer>
-    &copy; 2025 Arjun Singh Chauhan. All Rights Reserved. Made by Jarnail Singh
+    &copy; 2025 Arjun Singh Chauhan. All Rights Reserved. 
   </footer>
   
   <script>
@@ -514,10 +517,12 @@
     const body = document.querySelector('body');
     const navLinks = document.querySelector('.nav-links');
 
+    // Toggle the 'nav-active' class on the body when the menu icon is clicked
     menuToggle.addEventListener('click', () => {
       body.classList.toggle('nav-active');
     });
 
+    // Close the menu when a nav link is clicked (for better mobile UX)
     navLinks.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
         body.classList.remove('nav-active');
